@@ -1,38 +1,62 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
+  border: 1px solid red;
+  font-family: 'Raleway', sans-serif !important;
+  overflow-x: hidden;
+}
+
+.App-body {
+  display: flex;
+  flex: 1;
+  border: 1px solid red;
+}
+.App-content {
+  flex: 1;
+  border: 1px solid red;
+}
+
+.App-nav, .App-sidebar {
+  /* 12em is the width of the columns */
+  flex: 0 0 12em;
+  border: 1px solid red;
+}
+
+.App-nav {
+  /* put the nav on the left */
+  order: -1;
+  border: 1px solid red;
+}
+
+.App,
+.App-body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 1px solid red;
 }
 
-.App-link {
-  color: #61dafb;
+.App-nav {
+  order: -1;
+  border: 1px solid red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 768px) {
+  .App-body {
+    flex-direction: row;
+    flex: 1;
+    border: 1px solid red;
   }
-  to {
-    transform: rotate(360deg);
+  .App-content {
+    flex: 1;
+    border: 1px solid red;
   }
+  .App-nav, .App-sidebar {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
+    border: 1px solid red;
+  }
+}
+li {
+  list-style-type: none;
 }
