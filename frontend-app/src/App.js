@@ -5,6 +5,9 @@ import User from './User'
 import Show from './Show'
 import Types from './Types'
 import Customer from './Customer'
+import NewUser from './NewUser'
+
+import TextField from "@material-ui/core/TextField";
 
 import {Route, Link, Redirect, Switch, withRouter} from "react-router-dom"
 
@@ -12,7 +15,20 @@ class App extends Component {
   render(){
     return (
       <body class="App">
-        <header>Show Management Application</header>
+        <header>
+          <h1>Show Management Application</h1>
+          <form
+            noValidate
+            autoComplete="off"
+            // onSubmit={props.handleSubmit}
+            // onChange={props.handleChange}
+          >
+            <TextField type="text" name="UserName" placeholder="Name" />
+            <TextField type="text" name="UserPassword" placeholder="Password" />
+            <TextField type="submit" />
+          </form>
+          <Link to="/newUser">Register</Link>
+        </header>
         <div class="App-body">
           <main class="App-content">Main Content
             <Switch>
@@ -31,6 +47,10 @@ class App extends Component {
               <Route
                 path="/customer" 
                 component={Customer}
+                />
+              <Route
+                path="/newUser" 
+                component={NewUser}
                 />
             </Switch>
           </main>
