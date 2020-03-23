@@ -2,33 +2,29 @@ import React, {Component} from 'react';
 
 class Types extends Component {
   render(){
+
+    const showTypes = this.props.types.map(type => {
+      // console.log(type.pictures[0])
+      let typePictures = type.pictures.map((picture, index) => {
+        return <img key={index} src={`assets/images/${picture}`} alt=''/>
+      })
+
+      return(
+        <div key={type._id} className='type-container'>
+            <h4>{type.show}</h4>
+            <div>{type.description}</div>
+            <div className='type-picture-container'>
+              {typePictures}
+            </div>
+        </div>
+      )
+    })
+
+    // console.log(this.props)
+    // console.log('this.props.types[0]', this.props.types[0])
     return (
         <div>
-            <div>Show Types</div>
-              <div nameClass='type-container'>
-                <h4>Fireworks</h4>
-                <div>Description</div>
-                <div className='type-picture-container'>
-                  <div>Image</div>
-                  <div>Image</div>
-                </div>
-              </div>
-              <div nameClass='type-container'>
-                <h4>Pyrotechnics</h4>
-                <div>Description</div>
-                <div className='type-picture-container'>
-                  <div>Image</div>
-                  <div>Image</div>
-                </div>
-              </div>
-              <div nameClass='type-container'>
-                <h4>Special Effects</h4>
-                <div>Description</div>
-                <div className='type-picture-container'>
-                  <div>Image</div>
-                  <div>Image</div>
-                </div>
-              </div>
+          {showTypes}
         </div>
     )
     }

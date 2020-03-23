@@ -12,8 +12,11 @@ class NewUser extends Component {
                 // onSubmit={props.handleSubmit}
                 // onChange={props.handleChange}
             >
-                <TextField type="text" name="newUserName" placeholder="Name" />
+                <TextField type="text" name="newFirstName" placeholder="First Name" />
+                <TextField type="text" name="newLastName" placeholder="Last Name" />
                 <TextField type="text" name="newUserPassword" placeholder="Password" />
+                <TextField type="text" name="newUserEmail" placeholder="Email" />
+                <TextField type="text" name="newUserPhone" placeholder="(XXX) XXX-XXXX" />
                 <TextField type="submit" />
             </form>
         </div>
