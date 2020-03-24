@@ -30,7 +30,8 @@ class App extends Component {
       equipments: [],
       username: '',
       userpassword: '',
-      customers: []
+      customers: [],
+      userInfo: {}
     }
   }
 
@@ -112,7 +113,13 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    
+    let userUrl = `${backendUrl}users/username/${this.state.username}`
+        axios({method: 'GET', url: userUrl}).then(user =>
+            // console.log('usercomp getaxiosusers', user)
+            this.setState({
+                userInfo: user.data[0]
+            })
+        )
     // console.log('handleSubmit')
     // console.log(this.state)
     // this.getAxiosUser()
@@ -161,8 +168,8 @@ class App extends Component {
                 path="/user" 
                 render={routerProps =>
                   <User 
-                  {...routerProps} 
-                  user={this.state.username}
+                  {...routerProps}
+                  userInfo={this.state.userInfo} 
                 />}
               />
               <Route
