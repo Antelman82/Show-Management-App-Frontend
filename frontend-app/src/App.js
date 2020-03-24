@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+// import './App.css';
 
 import User from './User'
 import Show from './Show'
@@ -10,6 +10,8 @@ import ShowDetails from './ShowDetails'
 import AsideList from './AsideList'
 import UserLogin from './UserLogin'
 import Equipment from './Equipment'
+import Users from './Users'
+import ApiCalls from './ApiCalls'
 
 
 import axios from 'axios'
@@ -23,8 +25,10 @@ class App extends Component {
 
     this.state = {
       user: "",
+      users: [],
       types: [],
       shows: [],
+      equipments: [],
       username: '',
       userpassword: '',
       customers: []
@@ -32,11 +36,44 @@ class App extends Component {
   }
 
   componentDidMount(){
+    
+    // let types = ApiCalls.getTypes()
+    // let users = ApiCalls.getUsers()
+    // let shows = ApiCalls.getShows()
+    // let equipments = ApiCalls.getEquipments()
+    // let customers = ApiCalls.getCustomers()
+
+    // this.setState({
+    //   types: types,
+    //   users: users,
+    //   shows: shows,
+    //   equipments: equipments,
+    //   customers: customers 
+    // })
+    // this.getAxiosGeneric('types')
+    // this.getAxiosGeneric('shows')
+    // this.getAxiosGeneric('customers')
+    // this.getAxiosGeneric('equipments')
+    // this.getAxiosGeneric('users')
     this.getAxiosTypes()
     this.getAxiosShows()
     this.getAxiosCustomers()
     this.getAxiosEquipment()
+    this.getAxiosUsers()
   }
+
+ 
+  // getAxiosGeneric(val) {
+  //   let valUrl = `${backendUrl}${val}`
+  //   axios.get(valUrl).then(response => {
+  //     // this.response = response.data
+  //     this.setState({
+  //       [val]: response.data
+  //     })
+  //   }).catch(e => {
+  //     this.errors.push(e)
+  //   })
+  // }
 
   getAxiosTypes() {
     let typesUrl = `${backendUrl}types`
@@ -68,6 +105,12 @@ class App extends Component {
       this.setState({equipment: equipment.data}))
   }
 
+  getAxiosUsers() {
+    let userUrl = `${backendUrl}users`
+    axios({method: 'GET', url: userUrl}).then(users =>
+      this.setState({users: users.data}))
+  }
+
   handleSubmit = event => {
     event.preventDefault()
     
@@ -75,6 +118,7 @@ class App extends Component {
     console.log(this.state)
     // this.getAxiosUser()
   }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -87,33 +131,35 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>Show Management Application</h1>
-          <Route 
-            path="/"
-            render={routerProps =>
-              <UserLogin
-                {...routerProps}
-                user={this.state.user}
-                handleSubmit={this.handleSubmit}
-                handleChange={this.handleChange}
-              />}
-          />
-          <Link to="/newUser">Register</Link>
+        <header className='topnav'>
+          <h1>Show Management</h1>
+          <div className="login-container">
+            <Route 
+              path="/"
+              render={routerProps =>
+                <UserLogin
+                  {...routerProps}
+                  user={this.state.user}
+                  handleSubmit={this.handleSubmit}
+                  handleChange={this.handleChange}
+                />}
+            />
+            <Link to="/newUser">Register</Link>
+          </div>
         </header>
         <div className="App-body">
           <main className="App-content">
             <Switch>
               <Route
-                path="/user" 
-                component={User}
-                />
-              {/* <Route
-                path="/show" 
+                path="/users" 
                 render={() =>
-                  <Show show}
-                component={Show}
-                /> */}
+                  <Users users={this.state.users}/>}
+                />
+              <Route
+                path="/user" 
+                render={() =>
+                  <Users user={this.state.user}/>}
+                />
               <Route
                 path="/types" 
                 render={() =>
@@ -144,12 +190,12 @@ class App extends Component {
             </Switch>
           </main>
           <nav className="App-nav">
-            <h1>Navigation</h1>
+            <h3>Navigation</h3>
               <ul>
                 {/* <li><Link to="/show">Show</Link></li> */}
                 <li><Link to="/types">Show types</Link></li>
                 <li><Link to="/customer">Customers</Link></li>
-                <li><Link to="/user">User</Link></li>
+                <li><Link to="/users">Users</Link></li>
                 {/* <li><Link to="/showdetails">ShowDetails(temp)</Link></li> */}
                 <li><Link to="/equipment">Equipment</Link></li>
               </ul> 
@@ -162,7 +208,6 @@ class App extends Component {
       </div>
     );
   }
-  
 }
 
 export default withRouter(App);

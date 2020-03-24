@@ -9,25 +9,23 @@ class UserLogin extends Component {
     
     render(){
         return (
-        <div>
-            <form
-                noValidate
-                autoComplete="off"
-                onSubmit={this.props.handleSubmit}
-                onChange={this.props.handleChange}
-            >
-                <TextField 
-                    type="text" 
-                    name="username" 
-                    placeholder="Username" />
-                <TextField 
-                    type="password" 
-                    name="userpassword" 
-                    placeholder="Password" />
-                <TextField 
-                    type="submit"/>
-            </form>
-        </div>
+        <form
+            noValidate
+            autoComplete="off"
+            onSubmit={this.props.handleSubmit}
+            onChange={this.props.handleChange}
+        >
+            <TextField 
+                type="text" 
+                name="username" 
+                placeholder="Username" />
+            <TextField 
+                type="password" 
+                name="userpassword" 
+                placeholder="Password" />
+            <TextField 
+                type="submit"/>
+        </form>
         )
     }
 }

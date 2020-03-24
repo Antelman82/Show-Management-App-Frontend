@@ -11,3 +11,102 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  border: 1px solid red;
+  font-family: 'Raleway', sans-serif !important;
+  overflow-x: hidden;
+  background-color: rgb(236,236,236);
+  color: rgb(51,51,51);
+}
+
+.App-body {
+  display: flex;
+  flex: 1;
+  /* border: 1px solid red; */
+}
+.App-content {
+  flex: 1;
+  /* border: 1px solid red; */
+}
+
+.App-nav, .App-sidebar {
+  /* 12em is the width of the columns */
+  flex: 0 0 8em;
+  /* border-: 1px solid red; */
+}
+
+.App,
+.App-body {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+.App-nav {
+  order: -1;
+  /* border: 1px solid red; */
+  border-right: 1px solid black;
+}
+
+.App-sidebar {
+  border-left: 1px solid black;
+}
+
+.App-nav ul {
+  padding-left: 20px;
+}
+
+.App-content ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0vh 5vw;
+  margin: 0;
+}
+
+li button {
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+.topnav h1 {
+  float:left;
+  display: block;
+}
+
+header h1 {
+  font-weight: 800;
+  width: 50%;
+}
+
+.topnav .login-container{
+  float: right;
+}
+
+.type-picture-container img {
+  width: 200px;
+}
+
+@media (min-width: 768px) {
+  .App-body {
+    flex-direction: row;
+    flex: 1;
+    /* border: 1px solid red; */
+  }
+  .App-content {
+    flex: 1;
+    /* border: 1px solid red; */
+  }
+  .App-nav, .App-sidebar {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
+    /* border: 1px solid red; */
+  }
+}
+

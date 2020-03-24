@@ -22,7 +22,7 @@ class Equipment extends Component {
 
     return (
         <div>
-          {allEquipment}}
+          {allEquipment}
         </div>
     )
     }
