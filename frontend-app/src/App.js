@@ -9,6 +9,7 @@ import NewUser from './NewUser'
 import ShowDetails from './ShowDetails'
 import AsideList from './AsideList'
 import UserLogin from './UserLogin'
+import Equipment from './Equipment'
 
 
 import axios from 'axios'
@@ -25,14 +26,16 @@ class App extends Component {
       types: [],
       shows: [],
       username: '',
-      userpassword: ''
+      userpassword: '',
+      customers: []
     }
   }
 
   componentDidMount(){
     this.getAxiosTypes()
     this.getAxiosShows()
-    
+    this.getAxiosCustomers()
+    this.getAxiosEquipment()
   }
 
   getAxiosTypes() {
@@ -51,6 +54,18 @@ class App extends Component {
     let usersUrl = `${backendUrl}users`
     axios({method: 'GET', url: usersUrl}).then(users =>
       this.setState({users: users.data}))
+  }
+
+  getAxiosCustomers() {
+    let customersUrl = `${backendUrl}customers`
+    axios({method: 'GET', url: customersUrl}).then(customers =>
+      this.setState({customers: customers.data}))
+  }
+
+  getAxiosEquipment() {
+    let equipmentUrl = `${backendUrl}equipments`
+    axios({method: 'GET', url: equipmentUrl}).then(equipment =>
+      this.setState({equipment: equipment.data}))
   }
 
   handleSubmit = event => {
@@ -93,18 +108,21 @@ class App extends Component {
                 path="/user" 
                 component={User}
                 />
-              <Route
+              {/* <Route
                 path="/show" 
+                render={() =>
+                  <Show show}
                 component={Show}
-                />
+                /> */}
               <Route
                 path="/types" 
                 render={() =>
                   <Types types={this.state.types}/>}
                 />
               <Route
-                path="/customer" 
-                component={Customer}
+                path="/customer"
+                render={()=>
+                  <Customer customers={this.state.customers}/>} 
                 />
               <Route
                 path="/newUser" 
@@ -118,17 +136,22 @@ class App extends Component {
                     shows={this.state.shows}
                     />}
                   />
+              <Route
+                path="/equipment"
+                render={()=>
+                  <Equipment equipment={this.state.equipment}/>} 
+                />
             </Switch>
           </main>
           <nav className="App-nav">
             <h1>Navigation</h1>
               <ul>
-                <li><Link to="/show">Show</Link></li>
+                {/* <li><Link to="/show">Show</Link></li> */}
                 <li><Link to="/types">Show types</Link></li>
                 <li><Link to="/customer">Customers</Link></li>
                 <li><Link to="/user">User</Link></li>
-                <li><Link to="/showdetails">ShowDetails(temp)</Link></li>
-                <li>Equipment</li>
+                {/* <li><Link to="/showdetails">ShowDetails(temp)</Link></li> */}
+                <li><Link to="/equipment">Equipment</Link></li>
               </ul> 
           </nav>
           <aside className="App-sidebar">Show List

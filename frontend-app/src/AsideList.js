@@ -6,10 +6,12 @@ class AsideList extends Component {
     // console.log(this.props)
     
     const showNames = this.props.shows.map(showname => {
-        return <li key={showname._id}><Link  
-                  to={`/showdetails/${showname._id}`}
-        params={{ testvalue: "hello" }}>
-            {showname.businessName}</Link></li>
+        return <li key={showname._id}>
+          <Link
+            to={`/showdetails/${showname._id}`}>
+            {showname.businessName}
+          </Link>
+        </li>
     })
 
     return (

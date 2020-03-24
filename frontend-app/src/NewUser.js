@@ -12,16 +12,17 @@ class NewUser extends Component {
                 // onSubmit={props.handleSubmit}
                 // onChange={props.handleChange}
             >
-                <TextField type="text" name="newUsername" placeholder="Username" />
-                <TextField type="text" name="newFirstName" placeholder="First Name" />
-                <TextField type="text" name="newLastName" placeholder="Last Name" />
-                <TextField type="text" name="newUserPassword" placeholder="Password" />
-                <TextField type="text" name="newUserEmail" placeholder="Email" />
-                <TextField type="text" name="newUserPhone" placeholder="(XXX) XXX-XXXX" />
-                <TextField type="text" name="newAddress" placeholder="Address" />
-                <TextField type="text" name="newCity" placeholder="City" />
-                <TextField type="text" name="newUState" placeholder="State" />
-                <TextField type="text" name="newZipcode" placeholder="Zip" />
+                <li><TextField type="text" name="newFirstName" placeholder="First Name" /></li>
+                <li><TextField type="text" name="newLastName" placeholder="Last Name" /></li>
+                <li><TextField type="text" name="newUsername" placeholder="Username" /></li>
+                <li><TextField type="text" name="newUserPassword" placeholder="Password" /></li>
+                <li><TextField type="text" name="newAddress" placeholder="Address" /></li>
+                <li><TextField type="text" name="newCity" placeholder="City" /></li>
+                <li><TextField type="text" name="newUState" placeholder="State" /></li>
+                <li><TextField type="text" name="newZipcode" placeholder="Zip" /></li>
+                <li><TextField type="text" name="newUserPhone" placeholder="(XXX) XXX-XXXX" /></li>
+                <li><TextField type="text" name="newUserEmail" placeholder="Email" /></li>
+                
                 <TextField type="submit" />
             </form>
         </div>
