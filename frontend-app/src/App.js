@@ -24,7 +24,6 @@ class App extends Component {
     super(props)
 
     this.state = {
-      user: "",
       users: [],
       types: [],
       shows: [],
@@ -114,9 +113,11 @@ class App extends Component {
   handleSubmit = event => {
     event.preventDefault()
     
-    console.log('handleSubmit')
-    console.log(this.state)
+    // console.log('handleSubmit')
+    // console.log(this.state)
     // this.getAxiosUser()
+    this.props.history.push(`/user/${this.state.username}`)
+
   }
 
   handleChange = (event) => {
@@ -126,13 +127,13 @@ class App extends Component {
   } 
 
   render(){
-    console.log("app-render this.state",this.state)
+    // console.log("app-render this.state",this.state)
 
 
     return (
       <div className="App">
         <header className='topnav'>
-          <h1>Show Management</h1>
+          <h1><Link to="/">Show Management</Link></h1>
           <div className="login-container">
             <Route 
               path="/"
@@ -153,35 +154,41 @@ class App extends Component {
               <Route
                 path="/users" 
                 render={() =>
-                  <Users users={this.state.users}/>}
-                />
+                  <Users users={this.state.users}
+                />}
+              />
               <Route
                 path="/user" 
-                render={() =>
-                  <Users user={this.state.user}/>}
-                />
+                render={routerProps =>
+                  <User 
+                  {...routerProps} 
+                  user={this.state.username}
+                />}
+              />
               <Route
                 path="/types" 
                 render={() =>
-                  <Types types={this.state.types}/>}
-                />
+                  <Types types={this.state.types}
+                />}
+              />
               <Route
                 path="/customer"
                 render={()=>
-                  <Customer customers={this.state.customers}/>} 
-                />
+                  <Customer customers={this.state.customers}
+                />} 
+              />
               <Route
                 path="/newUser" 
                 component={NewUser}
-                />
+              />
               <Route
                 path="/showdetails/:id" 
                 render={routerProps =>
                   <ShowDetails 
                     {...routerProps}
                     shows={this.state.shows}
-                    />}
-                  />
+                  />}
+              />
               <Route
                 path="/equipment"
                 render={()=>
