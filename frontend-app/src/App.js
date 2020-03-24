@@ -214,7 +214,8 @@ class App extends Component {
                 <li><Link to="/equipment">Equipment</Link></li>
               </ul> 
           </nav>
-          <aside className="App-sidebar">Show List
+          <aside className="App-sidebar">
+            <h3>Show List</h3>
             <AsideList shows={this.state.shows}/>
           </aside>
         </div>
