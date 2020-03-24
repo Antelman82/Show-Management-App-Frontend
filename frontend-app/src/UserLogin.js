@@ -17,7 +17,7 @@ class UserLogin extends Component {
         >
             <TextField 
                 type="text" 
-                name="username" 
+                name="userName" 
                 placeholder="Username" />
             <TextField 
                 type="password" 

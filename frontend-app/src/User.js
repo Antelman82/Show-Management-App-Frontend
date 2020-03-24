@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ShowList from './ShowList'
 
 const User = props => {
@@ -6,11 +6,11 @@ const User = props => {
 
     // let userDetail = this.props.user
     
-    console.log('User Component Render this.props', props)
+    console.log('User Component Render props', props)
     return (
         <div>
-            <div>{`Username: ${props.userInfo.userName}`}</div>
-            <div>{`Welcome ${props.userInfo.firstName} ${props.userInfo.lastName}`}</div>
+            <div>{`Username: ${props.data.userInfo.userName}`}</div>
+            <div>{`Welcome ${props.data.userInfo.firstName} ${props.data.userInfo.lastName}`}</div>
             <ShowList params={props}/>
         </div>
     )

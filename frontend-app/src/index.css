@@ -16,7 +16,6 @@ code {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  border: 1px solid red;
   font-family: 'Raleway', sans-serif !important;
   overflow-x: hidden;
   background-color: rgb(236,236,236);
@@ -31,12 +30,16 @@ code {
 .App-content {
   flex: 1;
   /* border: 1px solid red; */
+  max-height: 90vw;
+  overflow: scroll;
 }
 
 .App-nav, .App-sidebar {
   /* 12em is the width of the columns */
   flex: 0 0 8em;
+  
   /* border-: 1px solid red; */
+  
 }
 
 .App,

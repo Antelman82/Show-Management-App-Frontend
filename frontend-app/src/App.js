@@ -28,7 +28,7 @@ class App extends Component {
       types: [],
       shows: [],
       equipments: [],
-      username: '',
+      userName: '',
       userpassword: '',
       customers: [],
       userInfo: {}
@@ -102,7 +102,7 @@ class App extends Component {
   getAxiosEquipment() {
     let equipmentUrl = `${backendUrl}equipments`
     axios({method: 'GET', url: equipmentUrl}).then(equipment =>
-      this.setState({equipment: equipment.data}))
+      this.setState({equipments: equipment.data}))
   }
 
   getAxiosUsers() {
@@ -113,18 +113,17 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    let userUrl = `${backendUrl}users/username/${this.state.username}`
-        axios({method: 'GET', url: userUrl}).then(user =>
-            // console.log('usercomp getaxiosusers', user)
+    let userUrl = `${backendUrl}users/userName/${this.state.userName}`
+        axios({method: 'GET', url: userUrl}).then(user => {
+            console.log('usercomp getaxiosusers', user)
             this.setState({
-                userInfo: user.data[0]
-            })
+                userInfo: user.data
+            })}
         )
     // console.log('handleSubmit')
-    // console.log(this.state)
+    console.log('handleSubmit this.state', this.state)
     // this.getAxiosUser()
-    this.props.history.push(`/user/${this.state.username}`)
-
+    this.props.history.push(`/user/${this.state.userName}`)
   }
 
   handleChange = (event) => {
@@ -134,7 +133,7 @@ class App extends Component {
   } 
 
   render(){
-    // console.log("app-render this.state",this.state)
+    console.log("app-render this.state",this.state)
 
 
     return (
@@ -169,7 +168,7 @@ class App extends Component {
                 render={routerProps =>
                   <User 
                   {...routerProps}
-                  userInfo={this.state.userInfo} 
+                  data={this.state} 
                 />}
               />
               <Route
@@ -199,7 +198,7 @@ class App extends Component {
               <Route
                 path="/equipment"
                 render={()=>
-                  <Equipment equipment={this.state.equipment}/>} 
+                  <Equipment equipment={this.state.equipments}/>} 
                 />
             </Switch>
           </main>

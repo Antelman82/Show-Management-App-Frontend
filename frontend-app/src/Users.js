@@ -11,7 +11,7 @@ class Users extends Component {
       return (
         <div key={user._id}>
             <h4>{`${user.firstName} ${user.lastName}`}</h4>
-            <div>{`username: ${user.username}`}</div>
+            <div>{`username: ${user.userName}`}</div>
             <div>{`address: ${user.address}`}</div>
             <div>{`city: ${user.city}`}</div>
             <div>{`state: ${user.state}`}</div>
