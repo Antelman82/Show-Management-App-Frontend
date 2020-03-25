@@ -11,6 +11,7 @@ import AsideList from './AsideList'
 import UserLogin from './UserLogin'
 import Equipment from './Equipment'
 import Users from './Users'
+import Home from './Home'
 import ApiCalls from './ApiCalls'
 
 
@@ -139,7 +140,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className='topnav'>
-          <h1><Link to="/">Show Management</Link></h1>
+          <h1>Show Management</h1>
           <div className="login-container">
             <Route 
               path="/"
@@ -151,12 +152,16 @@ class App extends Component {
                   handleChange={this.handleChange}
                 />}
             />
-            <Link to="/newUser">Register</Link>
+            <div className='register-link'><Link to="/newUser">Register</Link></div>
           </div>
         </header>
         <div className="App-body">
           <main className="App-content">
             <Switch>
+              <Route
+                path="/home" 
+                component={Home}
+              />
               <Route
                 path="/users" 
                 render={() =>
@@ -203,9 +208,10 @@ class App extends Component {
             </Switch>
           </main>
           <nav className="App-nav">
-            <h3>Navigation</h3>
+            {/* <h3>Navigation</h3> */}
               <ul>
                 {/* <li><Link to="/show">Show</Link></li> */}
+                <li><Link to="/home">Home</Link></li>
                 <li><Link to="/types">Show types</Link></li>
                 <li><Link to="/customer">Customers</Link></li>
                 <li><Link to="/users">Users</Link></li>
@@ -218,7 +224,7 @@ class App extends Component {
             <AsideList shows={this.state.shows}/>
           </aside>
         </div>
-        <footer>Footer</footer>
+        <footer>© Antelman & Brueschke Enterprises, LLC</footer>
       </div>
     );
   }

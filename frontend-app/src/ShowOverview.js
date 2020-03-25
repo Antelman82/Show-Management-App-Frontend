@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom"
 
-class ShowDetails extends Component {
+class ShowOverview extends Component {
   render(){
+      console.log('ShowOverview render this.props ', this.props)
     return (
-        <div>Show Details:
+        <div>Show OverView:
             <li><Link to="/showdetails">More Info on this Show</Link></li>
             <div>Status</div>
             <div>Date</div>
@@ -15,4 +16,4 @@ class ShowDetails extends Component {
     )
     }
 }
-export default ShowDetails;
+export default ShowOverview;

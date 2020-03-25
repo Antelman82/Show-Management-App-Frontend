@@ -11,7 +11,7 @@ const User = props => {
         <div>
             <div>{`Username: ${props.data.userInfo.userName}`}</div>
             <div>{`Welcome ${props.data.userInfo.firstName} ${props.data.userInfo.lastName}`}</div>
-            <ShowList params={props}/>
+            <ShowList props={props}/>
         </div>
     )
 }
