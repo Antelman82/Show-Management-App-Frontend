@@ -25,8 +25,8 @@ class ShowOverview extends Component {
     // //   const allUserShows = this.props.props.data.shows.filter((show) => 
     //     show._id == this.props.props.data.userInfo._id
     //   )
-      const userShowDivs = allUserShows.map((show, index) => {
-        return <div key={}>
+      const userShowDivs = allUserShows.map(show => {
+        return <div key={show._id} className='padding-left'>
                     <div>{show.businessName}</div>
                     <div>{show.status}</div>
                     <div>{show.date}</div>
@@ -39,7 +39,7 @@ class ShowOverview extends Component {
 
     //   console.log(allUserShows)
     return (
-        <div>Show OverView:
+        <div className='padding-left'>Show OverView:
             {userShowDivs}
         {/* <li><Link to="/showdetails">More Info on this Show</Link></li>
         <div>Status</div>
