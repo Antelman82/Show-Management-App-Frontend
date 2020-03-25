@@ -57,6 +57,8 @@ code {
 .App-sidebar {
   /* border-left: 1px solid black; */
   padding: 5px;
+  max-height: 90vw;
+  overflow: scroll;
 }
 
 .App-nav ul {

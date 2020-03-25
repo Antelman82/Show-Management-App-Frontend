@@ -83,7 +83,7 @@ design and build an app with two major components:
 - Your frontend must be responsive and work on mobile phones, tablets, and desktops
 You must have at least one test for each of your components
 
-## Collaboration
+## Deployment
 - Your API must be deployed to Heroku and your front-end must be deployed to GitHub pages or Surge. Applications that are not deployed will be considered incomplete.
 ---
 
@@ -102,6 +102,7 @@ currently no known bugs
 - **Axios**: https://github.com/axios/axios for application side API calls.
 - **Mongoose**:
 - **Express**:
+- **MongoDB Compass**:
 
 ## Installation:
 All you need is:

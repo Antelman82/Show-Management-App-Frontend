@@ -3,25 +3,29 @@ import TextField from "@material-ui/core/TextField";
 
 
 class NewUser extends Component {
+    constructor(props){
+        super(props)
+    }
   render(){
+      console.log('NewUser render this.props ', this.props)
     return (
         <div>
             <form
                 noValidate
                 autoComplete="off"
-                // onSubmit={props.handleSubmit}
-                // onChange={props.handleChange}
+                onSubmit={this.props.handleNewUserSubmit}
+                onChange={this.props.handleChange}
             >
-                <li><TextField type="text" name="newFirstName" placeholder="First Name" /></li>
-                <li><TextField type="text" name="newLastName" placeholder="Last Name" /></li>
-                <li><TextField type="text" name="newUsername" placeholder="Username" /></li>
-                <li><TextField type="text" name="newUserPassword" placeholder="Password" /></li>
-                <li><TextField type="text" name="newAddress" placeholder="Address" /></li>
-                <li><TextField type="text" name="newCity" placeholder="City" /></li>
-                <li><TextField type="text" name="newUState" placeholder="State" /></li>
-                <li><TextField type="text" name="newZipcode" placeholder="Zip" /></li>
-                <li><TextField type="text" name="newUserPhone" placeholder="(XXX) XXX-XXXX" /></li>
-                <li><TextField type="text" name="newUserEmail" placeholder="Email" /></li>
+                <li><TextField type="text" name="newfirstName" placeholder="First Name" /></li>
+                <li><TextField type="text" name="newlastName" placeholder="Last Name" /></li>
+                <li><TextField type="text" name="newuserName" placeholder="Username" /></li>
+                <li><TextField type="password" name="newpassword" placeholder="Password" /></li>
+                <li><TextField type="text" name="newaddress" placeholder="Address" /></li>
+                <li><TextField type="text" name="newcity" placeholder="City" /></li>
+                <li><TextField type="text" name="newstate" placeholder="State" /></li>
+                <li><TextField type="text" name="newzip" placeholder="Zipcode" /></li>
+                <li><TextField type="text" name="newphone" placeholder="(XXX) XXX-XXXX" /></li>
+                <li><TextField type="text" name="newemail" placeholder="Email" /></li>
                 
                 <TextField type="submit" />
             </form>

@@ -32,7 +32,17 @@ class App extends Component {
       userName: '',
       userpassword: '',
       customers: [],
-      userInfo: {}
+      userInfo: {},
+      newfirstName: '',
+      newlastName: '',
+      newuserName: '',
+      newaddress: '',
+      newcity: '',
+      newstate: '',
+      newphone: '',
+      newemail: '',
+      newpassword: '',
+      newzip: ''
     }
   }
 
@@ -127,7 +137,42 @@ class App extends Component {
     this.props.history.push(`/user/${this.state.userName}`)
   }
 
+  handleNewUserSubmit = event => {
+    event.preventDefault()
+    console.log('handleNewUserSubmit ', event, this.state)
+    // axios({
+    //   method: "POST",
+    //   url: `${backendUrl}users`,
+    //   data: {
+    //     firstName: this.state.newfirstName,
+    //     lastName: this.state.newlastName,
+    //     userName: this.state.newuserName,
+    //     password: this.state.newpassword,
+    //     address: this.state.newaddress,
+    //     city: this.state.newcity,
+    //     state: this.state.newstate,
+    //     zip: this.state.newzip
+    //     phone: this.state.newphone,
+    //     email: this.state.newemail
+    //   }
+    // }).then(newUser => {
+    //   this.setState({
+    //     newfirstName: '',
+    //     newlastName: '',
+    //     newuserName: '',
+    //     newpassword: '',
+    //     newaddress: '',
+    //     newcity: '',
+    //     newstate: '',
+    //     newzip: '',
+    //     newphone: '',
+    //     newemail: ''
+    //   })
+    // })
+  }
+
   handleChange = (event) => {
+    console.log('handleChange event.target.name ', event.target.name)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -190,7 +235,13 @@ class App extends Component {
               />
               <Route
                 path="/newUser" 
-                component={NewUser}
+                render={routerProps => 
+                  <NewUser 
+                  {...routerProps}
+                  props={this.state}
+                  handleNewUserSubmit={this.handleNewUserSubmit}
+                  handleChange={this.handleChange}/>}
+
               />
               <Route
                 path="/showdetails/:id" 

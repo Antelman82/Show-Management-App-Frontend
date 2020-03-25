@@ -21,7 +21,7 @@ class UserLogin extends Component {
                 placeholder="Username" />
             <TextField 
                 type="password" 
-                name="userpassword" 
+                name="password" 
                 placeholder="Password" />
             <TextField 
                 type="submit"/>
