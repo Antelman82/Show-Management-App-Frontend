@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
 
 class Customer extends Component {
-  constructor(props){
-    super(props)
-  }
+
   render(){
-    console.log('customer render this.props ',this.props)
+    // console.log('customer render this.props ',this.props)
 
     const allCustomers = this.props.customers.map(customer => {
       return (
-        <div>
+        <div className='padding-left'>
             <h4>{customer.businessName}</h4>
             <div>{`${customer.firstName} ${customer.lastName}`}</div>
             <div>{customer.phone}</div>

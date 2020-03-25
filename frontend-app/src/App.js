@@ -126,62 +126,69 @@ class App extends Component {
     event.preventDefault()
     let userUrl = `${backendUrl}users/userName/${this.state.userName}`
         axios({method: 'GET', url: userUrl}).then(user => {
-            console.log('usercomp getaxiosusers', user)
+            // console.log('usercomp getaxiosusers', user)
             this.setState({
                 userInfo: user.data
             })}
         )
     // console.log('handleSubmit')
-    console.log('handleSubmit this.state', this.state)
+    // console.log('handleSubmit this.state', this.state)
     // this.getAxiosUser()
     this.props.history.push(`/user/${this.state.userName}`)
   }
 
   handleNewUserSubmit = event => {
     event.preventDefault()
-    console.log('handleNewUserSubmit ', event, this.state)
-    // axios({
-    //   method: "POST",
-    //   url: `${backendUrl}users`,
-    //   data: {
-    //     firstName: this.state.newfirstName,
-    //     lastName: this.state.newlastName,
-    //     userName: this.state.newuserName,
-    //     password: this.state.newpassword,
-    //     address: this.state.newaddress,
-    //     city: this.state.newcity,
-    //     state: this.state.newstate,
-    //     zip: this.state.newzip
-    //     phone: this.state.newphone,
-    //     email: this.state.newemail
-    //   }
-    // }).then(newUser => {
-    //   this.setState({
-    //     newfirstName: '',
-    //     newlastName: '',
-    //     newuserName: '',
-    //     newpassword: '',
-    //     newaddress: '',
-    //     newcity: '',
-    //     newstate: '',
-    //     newzip: '',
-    //     newphone: '',
-    //     newemail: ''
-    //   })
-    // })
+    // console.log('handleNewUserSubmit ', event, this.state)
+    axios({
+      method: "POST",
+      url: `${backendUrl}users`,
+      data: {
+        firstName: this.state.newfirstName,
+        lastName: this.state.newlastName,
+        userName: this.state.newuserName,
+        password: this.state.newpassword,
+        address: this.state.newaddress,
+        city: this.state.newcity,
+        state: this.state.newstate,
+        zip: this.state.newzip,
+        phone: this.state.newphone,
+        email: this.state.newemail
+      }
+    }).then(newUser => {
+      // console.log('newuser-axios-then', newUser)
+      this.setState({
+        userName: this.state.newuserName,
+        newfirstName: '',
+        newlastName: '',
+        newuserName: '',
+        newpassword: '',
+        newaddress: '',
+        newcity: '',
+        newstate: '',
+        newzip: '',
+        newphone: '',
+        newemail: ''
+      })
+      let userUrl = `${backendUrl}users/userName/${this.state.userName}`
+      axios({method: 'GET', url: userUrl}).then(user => {
+        // console.log('usercomp getaxiosusers', user)
+        this.setState({
+            userInfo: user.data
+        })})
+    })
+    this.props.history.push(`/user/${this.state.userName}`)
   }
 
   handleChange = (event) => {
-    console.log('handleChange event.target.name ', event.target.name)
+    // console.log('handleChange event.target.name ', event.target.name)
     this.setState({
       [event.target.name]: event.target.value
     })
   } 
 
   render(){
-    console.log("app-render this.state",this.state)
-
-
+    // console.log("app-render this.state",this.state)
     return (
       <div className="App">
         <header className='topnav'>

@@ -2,11 +2,8 @@ import React from 'react';
 import ShowList from './ShowList'
 
 const User = props => {
-
-
     // let userDetail = this.props.user
-    
-    console.log('User Component Render props', props)
+    // console.log('User Component Render props', props)
     return (
         <div>
             <div>{`Username: ${props.data.userInfo.userName}`}</div>

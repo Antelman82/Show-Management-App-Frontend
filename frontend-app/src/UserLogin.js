@@ -3,9 +3,6 @@ import TextField from "@material-ui/core/TextField";
 
 
 class UserLogin extends Component {
-    constructor(props){
-        super(props)
-    }
     
     render(){
         return (

@@ -10,7 +10,7 @@ class Types extends Component {
       })
 
       return(
-        <div key={type._id} className='type-container'>
+        <div className='type-container padding-left'>
             <h4>{type.type}</h4>
             <div>{type.description}</div>
             <div className='type-picture-container'>

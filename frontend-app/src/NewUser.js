@@ -3,13 +3,11 @@ import TextField from "@material-ui/core/TextField";
 
 
 class NewUser extends Component {
-    constructor(props){
-        super(props)
-    }
+
   render(){
-      console.log('NewUser render this.props ', this.props)
+    //   console.log('NewUser render this.props ', this.props)
     return (
-        <div>
+        <div className='padding-left'>
             <form
                 noValidate
                 autoComplete="off"
