@@ -36,6 +36,7 @@ class App extends Component {
       userpassword: '',
       customers: [],
       userInfo: {},
+      equipmentInfo: {},
       newfirstName: '',
       newlastName: '',
       newuserName: '',
@@ -45,7 +46,12 @@ class App extends Component {
       newphone: '',
       newemail: '',
       newpassword: '',
-      newzip: ''
+      newzip: '',
+      newEquipName: '',
+      newEquipSize: '',
+      newEquipDescription: '',
+      newEquipQuantity: '',
+      newEquipType: ''
     }
   }
 
@@ -181,16 +187,60 @@ class App extends Component {
     })
     this.props.history.push(`/user/${this.state.userName}`)
   }
+  handleEquipUpdateSubmit = event => {
+    event.preventDefault()
+    console.log('handleEquipUpdateSubmit ', event)
+  }
+
+  handleNewEquipSubmit = event => {
+    event.preventDefault()
+    // console.log('handleNewEquipSubmit ', event)
+    axios({
+      method: "POST",
+      url: `${backendUrl}equipments`,
+      data: {
+        name: this.state.newEquipName,
+        size: this.state.newEquipSize,
+        description: this.state.newEquipDescription,
+        quantity: this.state.newEquipQuantity,
+        type: this.state.newEquiptype,
+      }
+    }).then(newEquip => {
+      // console.log('newuser-axios-then', newUser)
+      this.setState({
+        newEquipName: '',
+        newEquipSize: '',
+        newEquipDescription: '',
+        newEquipQuantity: '',
+        newEquiptype: ''
+      })
+    })
+    this.getAxiosEquipment()
+    this.props.history.push(`/equipment`)
+  }
+
+  handleDeleteEquip = event => {
+    event.preventDefault()
+    console.log('handleDeleteEquip ', event.target.id)
+    axios({
+      method: 'DELETE',
+      url: `${backendUrl}equipments/${event.target.id}`
+    }).then(deletedEquipment => {
+      console.log(deletedEquipment)
+    })
+    this.getAxiosEquipment()
+    this.props.history.push(`/equipment`)
+  }
 
   handleChange = (event) => {
-    // console.log('handleChange event.target.name ', event.target.name)
+    console.log('handleChange event.target.name ', event.target.name)
     this.setState({
       [event.target.name]: event.target.value
     })
   } 
 
   render(){
-    // console.log("app-render this.state",this.state)
+    console.log("app-render this.state",this.state)
     return (
       <div className="App">
         <header className='topnav'>
@@ -290,7 +340,7 @@ class App extends Component {
                     {...this.props}
                     {...routerProps}
                     equipment={this.state.equipments}
-                    handleDeleteEquipSubmit={this.handleDeleteEquipSubmit}
+                    handleDeleteEquip={this.handleDeleteEquip}
                     />} 
                 />
               <Route path="/*" render={() => <Redirect to="/home" />} />

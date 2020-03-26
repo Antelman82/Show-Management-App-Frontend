@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 class Equipment extends Component {
 
   render(){
-    console.log('Equipment render this.props ',this.props)
+    // console.log('Equipment render this.props ',this.props)
 
     const allEquipment = this.props.equipment.map(equipment => {
       return (

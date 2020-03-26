@@ -8,11 +8,11 @@ class EquipmentAdd extends Component {
 
     return (
         <div>
-          <h5>To update add equipment, type into field and click submit</h5>  
+          <h5>To add new equipment, type into field and click submit</h5>  
           <form
                 noValidate
                 autoComplete="off"
-                onSubmit={this.props.handleEquipAdd}
+                onSubmit={this.props.handleNewEquipSubmit}
                 onChange={this.props.handleChange}
             >
                 <li><TextField fullWidth={true} type="text" name="newEquipName" placeholder="name" /></li>
