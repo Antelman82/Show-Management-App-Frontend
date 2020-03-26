@@ -21,7 +21,7 @@ import ApiCalls from './ApiCalls'
 import axios from 'axios'
 
 import {Route, Link, Redirect, Switch, withRouter} from "react-router-dom"
-let backendUrl = process.env.REACT_APP_BACKEND_APP_URL || 'http://localhost:8080/api/equipments'
+let backendUrl = process.env.REACT_APP_BACKEND_APP_URL || 'http://localhost:8080/api/'
 // let backendUrl = 'https://show-management-app-backend.herokuapp.com/api/'
 class App extends Component {
   constructor(props){
