@@ -3,11 +3,153 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif !important;
+  overflow-x: hidden;
+  background-color: rgb(236,236,236);
+  color: rgb(51,51,51);
+}
+
+.App-body {
+  display: flex;
+  flex: 1;
+  /* border: 1px solid red; */
+}
+.App-content {
+  flex: 1;
+  /* border: 1px solid red; */
+  max-height: 90vw;
+  overflow: scroll;
+}
+.padding-left {
+  padding-left: 5px;
+  border-bottom: 1px solid black;
+}
+
+.App-nav, .App-sidebar {
+  flex: 0 0 8em;
+}
+
+.App,
+.App-body {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+.App-nav {
+  order: -1;
+  /* border: 1px solid red; */
+  /* border-right: 1px solid black; */
+  background-color: #525252;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.App-sidebar {
+  /* border-left: 1px solid black; */
+  padding: 5px;
+  max-height: 90vw;
+  overflow: scroll;
+}
+
+.App-nav ul {
+  padding-left: 20px;
+}
+
+.App-content ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0vh 5vw;
+  margin: 0;
+}
+
+li button {
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+.topnav h1 {
+  float:left;
+  display: block;
+}
+
+header h1 {
+  font-weight: 800;
+  width: 50%;
+}
+
+header {
+  color: #fff;
+  padding-left: 10px;
+  text-decoration-line: none;
+  background-color: #7C7C7C
+}
+
+.topnav .login-container{
+  float: right;
+  padding-right: 10px;
+}
+
+.register-link {
+  float: right;
+  padding-right: 10px;
+  text-decoration: none;
+}
+
+.type-picture-container img {
+  width: 200px;
+}
+
+footer {
+  text-align: center;
+  background-color: #7C7C7C;
+  color: #fff;
+}
+
+nav li {
+  display: block;
+  text-decoration: none;
+  background-color: #525252;
+}
+
+.home {
+  background-image: url('/assets/images/thumb-1920-370767.jpg');
+  background-size: 100% cover;
+  background-position: center center;
+  height: 100%;
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .App-body {
+    flex-direction: row;
+    flex: 1;
+    /* border: 1px solid red; */
+  }
+  .App-content {
+    flex: 1;
+    /* border: 1px solid red; */
+  }
+  .App-nav, .App-sidebar {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
+    /* border: 1px solid red; */
+  }
+}
+
