@@ -12,6 +12,9 @@ import UserLogin from './UserLogin'
 import Equipment from './Equipment'
 import Users from './Users'
 import Home from './Home'
+import EquipmentUpdate from './EquipmentUpdate'
+import EquipmentAdd from './EquipmentAdd'
+import ConfirmDeleteEquip from './ConfirmDeleteEquip'
 import ApiCalls from './ApiCalls'
 
 
@@ -72,7 +75,6 @@ class App extends Component {
     this.getAxiosEquipment()
     this.getAxiosUsers()
   }
-
  
   // getAxiosGeneric(val) {
   //   let valUrl = `${backendUrl}${val}`
@@ -261,8 +263,37 @@ class App extends Component {
               <Route
                 path="/equipment"
                 render={()=>
-                  <Equipment equipment={this.state.equipments}/>} 
+                  <Equipment {...this.props} equipment={this.state.equipments}/>} 
                 />
+              <Route
+                path="/equipmentupdate/:id"
+                render={routerProps =>
+                  <EquipmentUpdate 
+                    {...this.props} 
+                    {...routerProps} 
+                    equipment={this.state.equipments}
+                    handleEquipUdateSubmit />} 
+                />
+              <Route
+                path="/equipmentadd"
+                render={routerProps =>
+                  <EquipmentAdd 
+                    {...routerProps}
+                    handleChange={this.handleChange}
+                    handleNewEquipSubmit={this.handleNewEquipSubmit}
+                    />} 
+                />
+              <Route
+                path="/equipmentdelete/:id"
+                render={routerProps =>
+                  <ConfirmDeleteEquip 
+                    {...this.props}
+                    {...routerProps}
+                    equipment={this.state.equipments}
+                    handleDeleteEquipSubmit={this.handleDeleteEquipSubmit}
+                    />} 
+                />
+              <Route path="/*" render={() => <Redirect to="/home" />} />
             </Switch>
           </main>
           <nav className="App-nav">
@@ -278,7 +309,7 @@ class App extends Component {
               </ul> 
           </nav>
           <aside className="App-sidebar">
-            <h3>Show List</h3>
+            <h4>Show List</h4>
             <AsideList shows={this.state.shows}/>
           </aside>
         </div>

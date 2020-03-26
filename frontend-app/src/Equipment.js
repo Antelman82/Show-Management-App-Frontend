@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import EquipmentDetails from './EquipmentUpdate'
+import { Link } from "react-router-dom"
 
 class Equipment extends Component {
 
   render(){
-    // console.log('Equipment render this.props ',this.props)
+    console.log('Equipment render this.props ',this.props)
 
     const allEquipment = this.props.equipment.map(equipment => {
       return (
@@ -12,7 +14,15 @@ class Equipment extends Component {
             <div>{`size: ${equipment.size}`}</div>
             <div>{`description: ${equipment.description}`}</div>
             <div>{`quantity: ${equipment.quantity}`}</div>
-            <div>{`type: ${equipment.type}`}</div>
+            <div>{`type: ${equipment.type}`}</div>           
+            <Link to="/equipmentadd"><button>+</button></Link>
+            <Link to={`/equipmentupdate/${equipment._id}`}><button
+              key={equipment._id}
+              >Update</button></Link>
+            <Link to={`/equipmentdelete/${equipment._id}`}><button 
+              id={equipment._id}
+              >Delete</button>
+            </Link>
         </div>
       )
     })

@@ -5,15 +5,15 @@ class ShowOverview extends Component {
   render(){
       console.log('ShowOverview render this.props ', this.props)
     //   console.log('list of shows', this.props.props.props.data.shows)
-      let userInfo = this.props.props.props.data.userInfo
+      let userInfo = this.props.props.data.userInfo
         // console.log('userInfo._id', this.props.props.props.data.userInfo._id)
     //   let userFirstName = this.props.props.props.data.userInfo.firstName
     //   let userLastName = this.props.props.props.data.userInfo.lastName
     //   let userFullName = `${userFirstName} ${userLastName}`
     //   console.log('userFullName', userFullName)
-      console.log(this.props.props.props.data.userInfo._id)
+      console.log(this.props.props.data.userInfo._id)
       const allUserShows = []
-      this.props.props.props.data.shows.forEach(show => {
+      this.props.props.data.shows.forEach(show => {
         show.user.forEach(userId => {
             if (userId === userInfo._id){
                 allUserShows.push(show)
@@ -39,6 +39,14 @@ class ShowOverview extends Component {
 
     //   console.log(allUserShows)
     return (
+      <div className='padding-left'>ShowList(s):
+        <ul>
+          <li className='show-list'><button>2018</button></li>
+          <li className='show-list'><button>2019</button></li>
+          <li className='show-list'><button>2020</button></li>
+          <li className='show-list'><button>2021</button></li>
+          <li className='show-list'><button>All</button></li>
+        </ul>
         <div className='padding-left'>Show OverView:
             {userShowDivs}
         {/* <li><Link to="/showdetails">More Info on this Show</Link></li>
@@ -48,7 +56,9 @@ class ShowOverview extends Component {
         <div>Type</div>
         <div>Role</div> */}
         </div> 
+      </div>
     )
+
     }
 }
 export default ShowOverview;
