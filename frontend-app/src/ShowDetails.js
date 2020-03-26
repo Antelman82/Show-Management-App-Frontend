@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 
-const backendUrl = 'http://localhost:4000/api/'
+let backendUrl = process.env.REACT_APP_BACKEND_APP_URL || 'http://localhost:8080/api/'
 
 class ShowDetails extends Component {
     constructor(props){
