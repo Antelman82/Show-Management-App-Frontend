@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import EquipmentDetails from './EquipmentUpdate'
+
 import { Link } from "react-router-dom"
 
 class Equipment extends Component {
