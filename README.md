@@ -26,12 +26,29 @@ The main objective of this project was to create an application that a team coul
 <p align="center">
 <img src='Project 3 Wireframe - Show Management App4.jpg' width=200 align='center'>
 </p>
+---
+Assetts
+
+https://wall.alphacoders.com/big.php?i=370767
 
 ---
 
 ## User Stories
-1. As a user I should ...
-1. As a user I want ...
+1. As a user, I want to be able to securely login to the Show Management application, so I can use the system to manage my shows.
+1. As a user, I want to be able to see all shows I’ve worked, so I can track my show history.
+1. As a user, I want to I want to view all products for a specific show, so I can use those same effects in another future show.
+1. As a user, I want to be able to see all shows I’m scheduled for in the future, so I can manage my schedule.
+1. As a user, I want to view all of the equipment for a specific show, so I know what I need to pack to shoot the show.
+1. As a user, I want to see the which other shooters are on my upcoming shows, so I can contact them and work out logistics for the show.
+1. As a user, I want to be able to view all of my shows for a specific year, so I can track the numbers of shows I’ve completed.
+1. As a user, I want the ability to make updates to different aspects of each show, so I can keep the system information up to date.
+1. As a customer, I want to be able to see all shows I have scheduled in the future, so I can plan for upcoming events.
+1. As a customer, I want to manage the products that are in my upcoming shows, so I can plan the best show possible.
+1. As a customer, I want to see the staff assigned to my show, so I can contact them and coordinate security and other details for the show.
+1. As a customer, I want to be able to see a complete list of shows that I’ve had, so I can plan for the future.
+1. As a system administrator, I want the ability to add shows and details, so the users and customers can view all upcoming shows that 
+1. As a system administrator, I want the ability to add, modify and delete users to the system, so the staff can access the details for the shows assigned to them.
+
 
 ## Bronze Level:
 - MVP
