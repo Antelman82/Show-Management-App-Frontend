@@ -17,7 +17,7 @@ class Equipment extends Component {
             <div>{`type: ${equipment.type}`}</div>           
             <Link to="/equipmentadd"><button>+</button></Link>
             <Link to={`/equipmentupdate/${equipment._id}`}><button
-              key={equipment._id}
+              id={equipment._id}
               >Update</button></Link>
             <Link to={`/equipmentdelete/${equipment._id}`}><button 
               id={equipment._id}

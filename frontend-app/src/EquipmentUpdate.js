@@ -8,7 +8,7 @@ class EquipmentUpdate extends Component {
     // console.log(`this equipment's id `, this.props.match.params.id)
 
     const equipmentInfo = this.props.equipment.find(thisequip => thisequip._id === this.props.match.params.id)
-    // console.log('equipmentInfo ', equipmentInfo)
+    console.log('equipmentInfo ', equipmentInfo)
     return (
         <div>
           <h5>To update value, type into field and click submit</h5>  
@@ -18,11 +18,11 @@ class EquipmentUpdate extends Component {
                 onSubmit={this.props.handleEquipUpdateSubmit}
                 onChange={this.props.handleChange}
             >
-                <li><TextField fullWidth={true} type="text" name="newEquipName" defaultValue={`${equipmentInfo.name}`} /></li>
-                <li><TextField fullWidth={true} type="text" name="newEquipSize" defaultValue={`${equipmentInfo.size}`} /></li>
-                <li><TextField fullWidth={true} type="text" name="newEquipDescription" defaultValue={`${equipmentInfo.description}`} /></li>
-                <li><TextField fullWidth={true} type="text" name="newEquipQuantity" defaultValue={`${equipmentInfo.quantity}`} /></li>
-                <li><TextField fullWidth={true} type="text" name="newEquipType" defaultValue={`${equipmentInfo.type}`} /></li>             
+                <li>{`name: ${equipmentInfo.name}`}<TextField fullWidth={true} type="text" name="equipName" placeholder="update name"/></li>
+                <li>{`size: ${equipmentInfo.size}`}<TextField fullWidth={true} type="text" name="equipSize" placeholder="update size" /></li>
+                <li>{`description: ${equipmentInfo.description}`}<TextField fullWidth={true} type="text" name="equipDescription" placeholder="update description" /></li>
+                <li>{`quantity: ${equipmentInfo.quantity}`}<TextField fullWidth={true} type="text" name="equipQuantity" placeholder="update quantity" /></li>
+                <li>{`type: ${equipmentInfo.type}`}<TextField fullWidth={true} type="text" name="equipType" placeholder="update type" /></li>             
                 <TextField type="submit" />
             </form>
         </div>

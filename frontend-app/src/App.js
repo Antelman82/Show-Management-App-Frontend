@@ -51,9 +51,14 @@ class App extends Component {
       newEquipSize: '',
       newEquipDescription: '',
       newEquipQuantity: '',
-      newEquipType: ''
+      newEquipType: '',
+      equipName: '',
+      equipSize: '',
+      equipDescription: '',
+      equipQuantity: '',
+      equipType: ''
     }
-  }
+  } 
 
   componentDidMount(){
     
@@ -322,12 +327,13 @@ class App extends Component {
                     {...this.props} 
                     {...routerProps} 
                     equipment={this.state.equipments}
-                    handleEquipUdateSubmit />} 
+                    handleChange={this.handleChange}
+                    handleEquipUdateSubmit={this.handleEquipUpdateSubmit} />} 
                 />
               <Route
                 path="/equipmentadd"
                 render={routerProps =>
-                  <EquipmentAdd 
+                  <EquipmentAdd
                     {...routerProps}
                     handleChange={this.handleChange}
                     handleNewEquipSubmit={this.handleNewEquipSubmit}
