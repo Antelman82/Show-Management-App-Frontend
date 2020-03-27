@@ -12,19 +12,19 @@ The main objective of this project was to create an application that a team coul
 ## Screenshots
 - Wireframe
 <p align="center">
-<img src='Project 3 Wireframe - Show Management App.jpg' width=200 align='center'>
+<img src='Project 3 Wireframe - Show Management App.jpg' width=600 align='center'>
 </p>
 
 <p align="center">
-<img src='Project 3 Wireframe - Show Management App2.jpg' width=200 align='center'>
+<img src='Project 3 Wireframe - Show Management App - page2.jpg' width=600 align='center'>
 </p>
 
 <p align="center">
-<img src='Project 3 Wireframe - Show Management App3.jpg' width=200 align='center'>
+<img src='.Project 3 Wireframe - Show Management App - page3.jpg' width=600 align='center'>
 </p>
 
 <p align="center">
-<img src='Project 3 Wireframe - Show Management App4.jpg' width=200 align='center'>
+<img src='Project 3 Wireframe - Show Management App - page4.jpg' width=600 align='center'>
 </p>
 ---
 Assetts
