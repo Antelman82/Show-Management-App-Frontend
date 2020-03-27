@@ -107,6 +107,60 @@ You must have at least one test for each of your components
 - Your API must be deployed to Heroku and your front-end must be deployed to GitHub pages or Surge. Applications that are not deployed will be considered incomplete.
 ---
 
+## Backend API
+### cutomers
+https://show-management-app-backend.herokuapp.com/api/customers
+get customers/ returns all customers
+get customers/:id
+post
+put customers/:id
+delete customers/:id
+### equipments
+https://show-management-app-backend.herokuapp.com/api/equipments
+get equipments/ returns all equipments
+get equipments/:id
+post
+put equipments/:id
+delete equipments/:id
+### products
+https://show-management-app-backend.herokuapp.com/api/products
+get products/ returns all products
+get products/:id
+post
+put products/:id
+delete products/:id
+### shows
+https://show-management-app-backend.herokuapp.com/api/shows
+get shows/ returns all shows
+get shows/:id
+post
+put shows/:id
+delete shows/:id
+### types
+https://show-management-app-backend.herokuapp.com/api/types
+get types/ returns all types
+get types/:id
+post
+put types/:id
+delete types/:id
+### users
+https://show-management-app-backend.herokuapp.com/api/users
+get users/ returns all users
+get users/:id
+post
+put users/:id
+delete users/:id
+get /username/:userName returns specific user by username 
+### venues
+https://show-management-app-backend.herokuapp.com/api/venues
+get venues/ returns all venues
+get venues/:id
+post
+put venues/:id
+delete venues/:id
+
+---
+
 ## Bugs
 The businessName of the Customer component and the businessName of the Show component don’t always match. This error can be solved by adding a field to display eventName to the Show component.
 
