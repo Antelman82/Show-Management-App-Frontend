@@ -20,7 +20,7 @@ The main objective of this project was to create an application that a team coul
 </p>
 
 <p align="center">
-<img src='.Project 3 Wireframe - Show Management App - page3.jpg' width=600 align='center'>
+<img src='Project 3 Wireframe - Show Management App - page3.jpg' width=600 align='center'>
 </p>
 
 <p align="center">
