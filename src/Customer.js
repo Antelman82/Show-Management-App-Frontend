@@ -3,9 +3,19 @@ import React, {Component} from 'react';
 class Customer extends Component {
 
   render(){
-    // console.log('customer render this.props ',this.props)
+    console.log('customer render this.props ', this.props)
 
     const allCustomers = this.props.customers.map(customer => {
+      const customerShows = this.props.shows.map(show => {
+        console.log('show ', show.businessName)
+        if (show.businessName === customer.businessName) {
+          return (
+            <div>
+              <li>{show.date}&nbsp;&nbsp;&nbsp;&nbsp;{show.type}&nbsp;&nbsp;&nbsp;&nbsp;{show.status}</li>
+            </div>
+          )
+        }
+      })
       return (
         <div className='padding-left'>
             <h4>{customer.businessName}</h4>
@@ -15,9 +25,7 @@ class Customer extends Component {
             <div>{customer.comment}</div>
             <div>
               <h5>Show List</h5>
-              <li>Status</li>
-              <li>Type</li>
-              <li>Date</li>
+              {customerShows}
             </div>
         </div>
       )
@@ -25,7 +33,7 @@ class Customer extends Component {
 
 
     return (
-        <div>
+        <div className='padding-left'>
           {allCustomers}
         </div>
     )

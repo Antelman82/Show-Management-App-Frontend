@@ -34,13 +34,21 @@ class ShowDetails extends Component {
         // console.log(showDetails.type[0])
         // this.getAxiosType(showDetails.type[0])
         // console.log(this.state)
+        let users = showDetails.user.map((showUser, index) => {
+            console.log('showUser' , showUser)
+            console.log('this.props.users ', this.props.users)
+            let username = this.props.users.find(user => user._id === showUser)
+            console.log('username ', username)
+            return <div key={index}>{`${username.firstName} ${username.lastName}`}</div>
+        })
 
 
     return (
-        <div>
+        <div className='padding-left'>
             <div>{showDetails.businessName}</div>
             <div>{showDetails.date}</div>
             <div>{showDetails.Venue}</div>
+            {users}
             {roles}
             <div>{`Show type: ${showDetails.type}`}</div>
             {/* <div>{this.state.type}</div> */}

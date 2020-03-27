@@ -71,6 +71,9 @@ https://wall.alphacoders.com/big.php?i=370767
 ## Gold Level:
     - user password maintenance
     - filter user's shows by year
+    - We would expand on the show component, and we link to that using the AsideList links. 
+        this would allow adding equipment and products to each.
+    - also on the show page we could add and remove the products, equipment, users, roles, and also update the status, as well as date, and even venue.
 
 ---
 
@@ -105,7 +108,7 @@ You must have at least one test for each of your components
 ---
 
 ## Bugs
-currently no known bugs
+The businessName of the Customer component and the businessName of the Show component don’t always match. This error can be solved by adding a field to display eventName to the Show component.
 
 ---
 ## Technologies Used:
@@ -120,6 +123,7 @@ currently no known bugs
 - **Mongoose**:
 - **Express**:
 - **MongoDB Compass**:
+- **Heroku**
 
 ## Installation:
 All you need is:
@@ -142,6 +146,7 @@ google chrome
     react-router
     react-router-dom
     react-scripts
+    Axios
 
 ### Backend
     body-parser

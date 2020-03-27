@@ -306,8 +306,11 @@ class App extends Component {
               />
               <Route
                 path="/customer"
-                render={()=>
-                  <Customer customers={this.state.customers}
+                render={routerProps =>
+                  <Customer 
+                    {...routerProps}
+                    customers={this.state.customers}
+                    shows={this.state.shows}
                 />} 
               />
               <Route
@@ -326,6 +329,7 @@ class App extends Component {
                   <ShowDetails 
                     {...routerProps}
                     shows={this.state.shows}
+                    users={this.state.users}
                   />}
               />
               <Route
@@ -379,7 +383,7 @@ class App extends Component {
           </nav>
           <aside className="App-sidebar">
             <h4>Show List</h4>
-            <AsideList shows={this.state.shows}/>
+            <AsideList shows={this.state.shows} users={this.state.users}/>
           </aside>
         </div>
         <footer>© Antelman & Brueschke Enterprises, LLC</footer>
