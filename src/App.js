@@ -52,34 +52,16 @@ class App extends Component {
       newEquipDescription: '',
       newEquipQuantity: '',
       newEquipType: '',
-      equipName: '',
-      equipSize: '',
-      equipDescription: '',
-      equipQuantity: '',
-      equipType: ''
+      equipName: null,
+      equipSize: null,
+      equipDescription: null,
+      equipQuantity: null,
+      equipType: null
     }
   } 
 
   componentDidMount(){
     
-    // let types = ApiCalls.getTypes()
-    // let users = ApiCalls.getUsers()
-    // let shows = ApiCalls.getShows()
-    // let equipments = ApiCalls.getEquipments()
-    // let customers = ApiCalls.getCustomers()
-
-    // this.setState({
-    //   types: types,
-    //   users: users,
-    //   shows: shows,
-    //   equipments: equipments,
-    //   customers: customers 
-    // })
-    // this.getAxiosGeneric('types')
-    // this.getAxiosGeneric('shows')
-    // this.getAxiosGeneric('customers')
-    // this.getAxiosGeneric('equipments')
-    // this.getAxiosGeneric('users')
     this.getAxiosTypes()
     this.getAxiosShows()
     this.getAxiosCustomers()
@@ -194,12 +176,42 @@ class App extends Component {
   }
   handleEquipUpdateSubmit = event => {
     event.preventDefault()
-    console.log('handleEquipUpdateSubmit ', event)
+    console.log('handleEquipUpdateSubmit')
+    console.log('event.target.id ', event.target.id)
+
+    //define data object that will be used for the put statement
+    let data = {}
+    //conditional logic that stats if the value isn't empty, set the data 
+    //object key and assign it with the update value
+    if (this.state.equipName) {data.name = this.state.equipName}
+    if (this.state.equipSize) {data.size = this.state.equipSize}
+    if (this.state.equipDescription) {data.escription = this.state.equipDescription}
+    if (this.state.equipQuantity) {data.quantity = this.state.equipQuantity}
+    if (this.state.equipType) {data.type = this.state.equipType}
+    
+    console.log('data ', data)
+    axios({
+      method: "PUT",
+      url: `${backendUrl}equipments/${event.target.id}`,
+      data: data
+    }).then(updatedEquip => {
+      // console.log('updatedEquip ', updatedEquip)
+      this.setState(prevState => ({
+        equipments: [...prevState.equipments, updatedEquip.data],
+        equipName: '',
+        equipSize: '',
+        equipDescription: '',
+        equipQuantity: '',
+        equiptype: ''
+      }))
+    })
+    this.getAxiosEquipment()
+    this.props.history.push(`/equipment`)
   }
 
   handleNewEquipSubmit = event => {
     event.preventDefault()
-    // console.log('handleNewEquipSubmit ', event)
+    console.log('handleNewEquipSubmit ', event)
     axios({
       method: "POST",
       url: `${backendUrl}equipments`,
@@ -212,13 +224,14 @@ class App extends Component {
       }
     }).then(newEquip => {
       // console.log('newuser-axios-then', newUser)
-      this.setState({
+      this.setState(prevState => ({
+        equipments: [...prevState.equipments, newEquip.data],
         newEquipName: '',
         newEquipSize: '',
         newEquipDescription: '',
         newEquipQuantity: '',
         newEquiptype: ''
-      })
+      }))
     })
     this.getAxiosEquipment()
     this.props.history.push(`/equipment`)
@@ -328,7 +341,7 @@ class App extends Component {
                     {...routerProps} 
                     equipment={this.state.equipments}
                     handleChange={this.handleChange}
-                    handleEquipUdateSubmit={this.handleEquipUpdateSubmit} />} 
+                    handleEquipUpdateSubmit={this.handleEquipUpdateSubmit} />} 
                 />
               <Route
                 path="/equipmentadd"
