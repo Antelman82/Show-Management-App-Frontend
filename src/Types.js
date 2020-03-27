@@ -4,7 +4,6 @@ class Types extends Component {
   render(){
 
     const showTypes = this.props.types.map(type => {
-      // console.log(type.pictures[0])
       let typePictures = type.pictures.map((picture, index) => {
         return <img key={index} src={`assets/images/${picture}`} alt=''/>
       })
@@ -20,8 +19,6 @@ class Types extends Component {
       )
     })
 
-    // console.log(this.props)
-    // console.log('this.props.types[0]', this.props.types[0])
     return (
         <div>
           {showTypes}
